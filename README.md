@@ -1,4 +1,4 @@
-# Hosting my own projects
+# Hosting some of my own projects
 
 requires: 
 - Docker-compose
