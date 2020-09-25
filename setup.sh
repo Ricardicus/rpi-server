@@ -19,7 +19,7 @@ fi
 
 # Checking docker-compose
 if [ -z $(which docker-compose) ]; then
-  echo git needs to be installed >&2
+  echo docker-compose needs to be installed >&2
   exit 1 
 fi
 
