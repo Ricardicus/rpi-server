@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  count-down:
+    image: count-down
+    build:
+      - context: count-down
+      - Dockerfile: count-down/Dockerfile
+     container_name: count-down
+     ports:
+      - "8090:8080"
+
+  file-sharer:
+    image: file-sharer
+    build:
+      - context: apache2-container
+      - Dockerfile: apache2-container/Dockerfile
+    container_name: file-sharer
+    ports:
+      - "8091:8080"
+    volumes:
+        - /home/pi/Share:/var/wwww
+
+  virtual-piano:
+    image: virtual-piano
+    build:
+      context: virtualPiano
+      dockerfile: virtualPiano/Dockerfile
+    container_name: virtual-piano
+    ports:
+      - "8092:8080"
+
+  ric-script:
+    image: ric-script
+    build:
+      context: ric-script
+      dockerfile: ric-script/Dockerfile
+    container_name: ric-script
+    ports:
+      - "8093:3000"
+
+
+
