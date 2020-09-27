@@ -17,9 +17,9 @@ services:
       dockerfile: Dockerfile
     container_name: file-sharer
     ports:
-      - "8091:8080"
+      - "8091:80"
     volumes:
-        - /home/pi/Share:/var/wwww
+        - /home/pi/Share:/var/www/listing
 
   virtual-piano:
     image: virtual-piano
@@ -38,6 +38,7 @@ services:
     container_name: ric-script
     ports:
       - "8093:3000"
+    restart: always
 
 
 
