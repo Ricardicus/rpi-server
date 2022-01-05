@@ -21,7 +21,7 @@ services:
     ports:
       - "8091:80"
     volumes:
-        - /home/pi/Share:/var/www/listing
+        - /home/pi/ricssd/Share:/var/www/listing
 
   virtual-piano:
     image: virtual-piano
