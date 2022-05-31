@@ -33,17 +33,6 @@ services:
     ports:
       - "8092:8080"
 
-  ric-script:
-    image: ric-script
-    hostname: ric-script
-    build:
-      context: ./ric-script
-      dockerfile: Dockerfile
-    container_name: ric-script
-    ports:
-      - "8093:3000"
-    restart: always
-
   reverse:
     container_name: reverse
     hostname: reverse
