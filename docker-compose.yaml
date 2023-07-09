@@ -21,7 +21,7 @@ services:
     ports:
       - "8091:80"
     volumes:
-        - /home/pi/ricssd/Share:/var/www/listing
+        - /media/pi/Seagate Expansion Drive/Share:/var/www/listing
 
   virtual-piano:
     image: virtual-piano
