@@ -44,11 +44,13 @@ services:
 
 
   brfrynninge:
+    container_name: brfrynninge
+    hostname: brfrynninge
     build:
       context: brf
       dockerfile: Dockerfile
     volumes:
-      - ./site:/var/www/html
+      - ./brf/site:/var/www/html
     ports:
       - 9000:80
     depends_on:
@@ -60,6 +62,7 @@ services:
       MYSQL_DB: mydb
 
   db:
+    container_name: db
     image: jsurf/rpi-mariadb
     volumes:
       - ./brf/brfrynninge.sql:/docker-entrypoint-initdb.d/data.sql
