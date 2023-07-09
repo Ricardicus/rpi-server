@@ -43,4 +43,31 @@ services:
       - 80:80
 
 
+  brfrynninge:
+    build:
+      context: brf
+      dockerfile: Dockerfile
+    volumes:
+      - ./site:/var/www/html
+    ports:
+      - 9000:80
+    depends_on:
+      - db
+    environment:
+      MYSQL_HOST: db:3306
+      MYSQL_USER: myusr
+      MYSQL_PASSWORD: pass
+      MYSQL_DB: mydb
+
+  db:
+    image: jsurf/rpi-mariadb
+    volumes:
+      - ./brf/brfrynninge.sql:/docker-entrypoint-initdb.d/data.sql
+      - ./brf/my.cnf:/etc/mysql/conf.d/my.cnf
+#      - mariadb_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+      MYSQL_USER: myusr
+      MYSQL_PASSWORD: pass
 
